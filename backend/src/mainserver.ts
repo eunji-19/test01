@@ -5,6 +5,8 @@ import dotenv from "dotenv";
 import { MongoConnector } from "./mongo-connector";
 import cookieParser from "cookie-parser";
 
+import { authRouter } from "./routes";
+
 export class MainServer {
   private app: any;
 
@@ -22,6 +24,11 @@ export class MainServer {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cors());
     this.app.use(cookieParser());
+
+    /**
+     * Router 설정
+     */
+    this.app.use("/api/auth", authRouter);
 
     /**
      * Server 연결
