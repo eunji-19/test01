@@ -34,7 +34,7 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
      * 1. generateClientToken
      */
     const generateClientTokenURL = new URL(
-      "https://dev.aistudios.com/api/odin/generateClientToken"
+      `${process.env.DEEP_BRAIN_URL}/generateClientToken`
     );
     generateClientTokenURL.searchParams.append(
       "appId",
@@ -62,7 +62,7 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
      * 2. generateToken 발급
      */
     const generateTokenURL = new URL(
-      "https://dev.aistudios.com/api/odin/generateToken"
+      `${process.env.DEEP_BRAIN_URL}/generateToken`
     );
     const body = {
       appId: process.env.DEEP_BRAIN_APPID,
