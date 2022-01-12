@@ -1,5 +1,7 @@
 import userService from "./userService";
+import bookService from "./bookService";
 
 export {
-  userService, // 객체 내보내기
+  userService, 
+  bookService
 };
